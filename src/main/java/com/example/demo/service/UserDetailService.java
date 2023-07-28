@@ -12,18 +12,12 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 
 @Service
-@Slf4j
 public class UserDetailService implements UserDetailsService {
     private final UserRepo userRepo;
 
     @Autowired
     public UserDetailService(UserRepo userRepo) {
         this.userRepo = userRepo;
-    }
-
-    @PostConstruct
-    public void init() {
-        log.info("UserDetailsService init");
     }
 
     @Override

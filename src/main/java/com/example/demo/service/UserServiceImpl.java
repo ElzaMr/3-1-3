@@ -4,7 +4,6 @@ import com.example.demo.model.Role;
 import com.example.demo.model.User;
 import com.example.demo.repo.RoleRepo;
 import com.example.demo.repo.UserRepo;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,7 +16,6 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-@Slf4j
 public class UserServiceImpl implements UserService {
 
     private final UserRepo userRepo;
@@ -29,11 +27,6 @@ public class UserServiceImpl implements UserService {
         this.userRepo = userRepo;
         this.roleRepo = roleRepo;
         this.passwordEncoder = passwordEncoder;
-    }
-
-    @PostConstruct
-    private void init() {
-        log.info("init UserService");
     }
 
     @Override
