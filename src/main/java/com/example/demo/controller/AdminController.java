@@ -76,7 +76,7 @@ public class AdminController {
     }
 
     @PatchMapping(value = "/{id}")
-    public String update1(@ModelAttribute("user") User user/*, @RequestParam(value = "pass", required = true, defaultValue = "123") String pass*/) {
+    public String update1(@ModelAttribute("user") User user) {
         System.out.println(user.getPass());
         userService.update(user);
         return "redirect:users";
