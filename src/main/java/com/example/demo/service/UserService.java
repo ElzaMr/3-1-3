@@ -5,13 +5,14 @@ import com.example.demo.model.User;
 import java.util.List;
 
 public interface UserService {
-    public List<User> getAllUsers();
+    List<User> getAllUsers();
 
-    public User getUserById(long id);
+    User getUserById(long id);
 
-    public void save(User user);
+    void save(User user);
+    void update(User user);
 
-    public void delete(long id);
+    void delete(long id);
 
-    public User getUserByUsername(String username);
+    User getUserByUsername(String username);
 }

@@ -24,6 +24,7 @@
     <label for="pass">Enter pass: </label>
     <input type="text" th:field="*{pass}" id="pass"/>
     <br/>
+
     <select th:field="*{roles}">
         <option th:each="role : ${list}"
                 th:value="${role.getId()}"

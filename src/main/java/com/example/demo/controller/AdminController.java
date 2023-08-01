@@ -76,8 +76,8 @@ public class AdminController {
     }
 
     @PatchMapping(value = "/{id}")
-    public String update1(@ModelAttribute("user") User user, Model model) {
-        userService.save(user);
+    public String update1(@ModelAttribute("user") User user) {
+        userService.update(user);
         return "redirect:users";
     }
 
