@@ -30,14 +30,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
     public List<User> getAllUsers() {
         return userRepo.findAll();
     }
 
     @Override
-    @Transactional
-    public User getUserById(int id) {
+    public User getUserById(long id) {
         User user = userRepo.findById(id).orElse(null);
         return user;
     }
@@ -46,33 +44,18 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void save(User user) {
         user.setPass(passwordEncoder.encode(user.getPass()));
-        Optional<Role> role = roleRepo.findById(2);
-        Set<Role> roleSet = new HashSet<>();
-        roleSet.add(role.get());
-        user.setRoles(roleSet);
         userRepo.save(user);
     }
 
     @Override
     @Transactional
-    public void saveInit(User user) {
-        user.setPass(passwordEncoder.encode(user.getPass()));
-        userRepo.save(user);
-    }
-
-    @Override
-    @Transactional
-    public void update(User updatedUser) {
-        updatedUser.setPass(passwordEncoder.encode(updatedUser.getPass()));
-        Optional<Role> role = roleRepo.findById(1);
-        Role role1 = role.get();
-
+    public void update(User updatedUser, Role role) {
         userRepo.save(updatedUser);
     }
 
     @Override
     @Transactional
-    public void delete(int id) {
+    public void delete(long id) {
         userRepo.deleteById(id);
     }
 

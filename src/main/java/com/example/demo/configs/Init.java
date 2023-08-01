@@ -2,14 +2,11 @@ package com.example.demo.configs;
 
 import com.example.demo.model.Role;
 import com.example.demo.model.User;
-import com.example.demo.repo.RoleRepo;
 import com.example.demo.service.RoleService;
 import com.example.demo.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.web.servlet.oauth2.login.OAuth2LoginSecurityMarker;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import java.util.HashSet;
@@ -42,10 +39,10 @@ public class Init {
         roleService.saveRole(userRole);
 
         User admin = new User("admin", "admin", 20, "123", adminRoles);
-        userService.saveInit(admin);
+        userService.save(admin);
 
         User user = new User("user", "user", 20, "123", userRoles);
-        userService.saveInit(user);
+        userService.save(user);
         log.info("user and admin created");
     }
 }
